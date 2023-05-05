@@ -36,6 +36,13 @@
                 console.log(cl.target.email);
                 console.log(cl.target.pnumber);
                 console.log(cl.target.toc1,cl.target.toc2);
+                 let items=document.getElementById("main");
+                items.style.backgroundColor="grey"
+                localStorage.getItem("Name", cl.target.Name);
+                localStorage.getItem("email", cl.target.email);
+                localStorage.getItem("Phone number", cl.target.pnumber);
+                localStorage.getItem("date", cl.target.toc1);
+                localStorage.getItem("time", cl.target.toc2);
             }
         </script>
 </body>
