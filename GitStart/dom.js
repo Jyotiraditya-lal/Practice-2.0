@@ -23,6 +23,13 @@ for(let i=0;i<items.length;i++)
     items[i].style.fontWeight="bold";
 }
 
+
+let x=document.querySelector(".list-group-item:nth-child(2)");
+x.style.backgroundColor="green"
+
+let y=document.querySelector(".list-group-item:nth-child(3)");
+y.style.display="none";
+
 let li=document.getElementsByTagName("li");
 for(let i=0;i<li.length;i++)
 {
@@ -38,3 +45,4 @@ for(let i=0;i<odd.length;i++)
     odd[i].style.backgroundColor="green"
 
 }
+
