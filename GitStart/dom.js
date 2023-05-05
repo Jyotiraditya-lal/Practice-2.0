@@ -22,8 +22,19 @@ for(let i=0;i<items.length;i++)
 {
     items[i].style.fontWeight="bold";
 }
+
 let li=document.getElementsByTagName("li");
 for(let i=0;i<li.length;i++)
 {
     li[i].style.backgroundColor="yellow"
+
+
+let i2=document.querySelectorAll(".list-group-item");
+i2[1].style.color="green";
+
+let odd=document.querySelectorAll(".list-group-item:nth-child(odd)");
+for(let i=0;i<odd.length;i++)
+{
+    odd[i].style.backgroundColor="green"
+
 }
