@@ -37,6 +37,13 @@ function addItem(e){
 
   // Append li to list
   itemList.appendChild(li);
+  
+  let edit=document.createElement("button");
+  edit.className="Edit";
+  let editText=document.createTextNode("Edit");
+  edit.appendChild(editText);
+  li.appendChild(edit); 
+  itemList.appendChild(li);
 }
 
 // Remove item
@@ -65,10 +72,4 @@ function filterItems(e){
     }
   });
 }
-let edit=document.createElement("button");
-edit.className="Edit";
-let editText=document.createTextNode("Edit");
-edit.appendChild(editText);
-let after=document.querySelector(".list-group-item")
-let before=after.nextElementSibling
-after.insertBefore(edit,before);
+
