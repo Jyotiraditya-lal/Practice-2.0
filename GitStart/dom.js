@@ -46,3 +46,34 @@ for(let i=0;i<odd.length;i++)
 
 }
 
+let newdiv=document.createElement("div");
+/*newdiv.className="className"
+  newdiv.id="id"
+  newdiv.setAttribute("attributeName,value")*/
+
+//Inserts a new <div> tag before <h1>
+let h1=document.querySelector('header h1');
+let div=document.querySelector("header .container");
+let newdivtext=document.createTextNode("Hello");
+newdiv.appendChild(newdivtext);
+div.insertBefore(newdiv,h1);
+
+//inserts hello before item 1
+let a=document.querySelector(".list-group");
+let b=document.querySelector(".list-group-item");
+let newItem=document.createElement("div");
+let newItemText=document.createTextNode("Hello");
+newItem.appendChild(newItemText);
+a.insertBefore(newItem,b);
+
+/* let a=document.querySelector(".list-group")
+console.log(a.parentElement)   output-> <div id="main" class="card card-body">
+console.log(a.parentElement.parentElement)  output-> <div class="container">
+console.log(a.lastelementchild)  output-> <li class="list-group-item">Item 4</li>
+console.log(a.lastchild)   output-> #text (lastchild also includes line breaks which is returned as text so better use lastelementchild)
+console.log(a.previousElementSibling)  output-> <h2 class="title">Items</h2>
+console.log(a.previousSibling)  output-> #text (previoussibling also includes line breaks which is returned as text so better use previousElementSibling)
+      Same with (firstchild,firstelementchild) and (nextsibling,nextelementsibling);*/
+=======
+
+
