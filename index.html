@@ -41,6 +41,7 @@
                 let s= JSON.stringify(myObj); // converts object to string as local storage stores only string values
                 localStorage.setItem("myObj",s);
                 let y= JSON.parse(localStorage.getItem("myobj")); // converts string back to object for local use
+                console.log(y);
             }
         </script>
 </body>
