@@ -38,11 +38,9 @@
                 console.log(cl.target.toc1,cl.target.toc2);
                  let items=document.getElementById("main");
                 items.style.backgroundColor="grey"
-                localStorage.setItem("Name", cl.target.Name);
-                localStorage.setItem("email", cl.target.email);
-                localStorage.seetItem("Phone number", cl.target.pnumber);
-                localStorage.setItem("date", cl.target.toc1);
-                localStorage.setItem("time", cl.target.toc2);
+                let s= JSON.stringify(myObj); // converts object to string as local storage stores only string values
+                localStorage.setItem("myObj",s);
+                let y= JSON.parse(localStorage.getItem("myobj")); // converts string back to object for local use
             }
         </script>
 </body>
