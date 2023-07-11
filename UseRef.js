@@ -10,38 +10,40 @@ const User=(props)=>{
 
     
     const [Error,setError]=useState('')
-    const NameInputRef=useRef()
-    const AgeInputRef=useRef()
-    const CollegeInputRef=useRef()
+    const NameInputRef=useRef();
+    const AgeInputRef=useRef();
+    const CollegeInputRef=useRef();
 
     const SubmitHandler=(event)=>{
         event.preventDefault()
-        const enteredName = NameInputRef.current.value;
-        const enteredAge = AgeInputRef.current.value;
-        const enteredCollege = CollegeInputRef.current.value
+        const enteredName=NameInputRef.current.value;
+        const enteredAge=AgeInputRef.current.value;
+        const enteredCollege=CollegeInputRef.current.value;
         const UserData={
             id: Math.random().toString(),
             name: enteredName,
             age: enteredAge,
             college: enteredCollege
         }
-        if(enteredName.trim().length===0 | enteredAge.trim().length===0)
-        {
-            setError({
-                title: "Invalid Input",
-                message: "Enter Valid Details"
-            })   
-        }
-        else if(+enteredAge<0)
-        {
-             setError({
-                title: "Invaild Age",
-                message: "Age Can't be negative"
-             })
-        }
-        else{
-            props.onAddUser(UserData)
-        }
+        
+            if(enteredName.trim().length===0 | enteredAge.trim().length===0 | enteredCollege.trim().length===0)
+              {
+                 setError({
+                      title: "Invalid Input",
+                      message: "Please enter the valid details"
+                    })   
+              }
+            else if(+enteredAge < 1)
+             {
+                 setError({
+                     title: "Invaild Age",
+                     message: "Please enter a vaild age"
+                    })
+             }
+            else{
+                 props.onAddUser(UserData)
+               }
+        
        
         NameInputRef.current.value=''
         AgeInputRef.current.value=''
