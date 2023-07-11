@@ -24,7 +24,7 @@ const User=(props)=>{
         else if(+enteredAge < 1){
             ErrorMessage=2
         }
-    })
+    },[enteredName,enteredAge,enteredCollege])
 
     const SubmitHandler=(event)=>{
         event.preventDefault()
