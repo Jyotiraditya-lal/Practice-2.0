@@ -1,50 +1,48 @@
-
 import { createSlice,configureStore } from '@reduxjs/toolkit'
 
-const initialState={ counter: 0, showCounter: false }
-const AuthState = {
-    isAuthenticated: false,
-  };
 
-const counterSlice=createSlice({
-    name: 'counter',
-    initialState: initialState,
+const UIstate={showCart: false}
+const CartState={items: [], totalPrice: 0, quantity: 0}
+
+const UIslice=createSlice({
+    name: 'ui',
+    initialState: UIstate,
     reducers: {
-        increment (state) {
-            state.counter++
-        },
-        decrement (state) {
-            state.counter--
-        },
-        increase (state,action) {
-            state.counter=state.counter+action.payload
-        },
-        decrease (state,action) {
-            state.counter=state.counter-action.payload
-        },
-        toggle(state){
-            state.showCounter=!state.showCounter
+        showCart(state){
+            state.showCart=!state.showCart
         }
     }
 })
 
-const authSlice=createSlice({
-    name: 'Auth',
-    initialState: AuthState,
+
+
+const CartSlice=createSlice({
+    name: 'Cart',
+    initialState: CartState,
     reducers: {
-        login(state){
-            state.isAuthenticated=true
-        },
-        logout (state){
-            state.isAuthenticated=false
+        AddToCart(state,action){
+            const newItem=action.payload;
+            const exsistingItem=state.items.find(item=>item.id===newItem.id)
+            if(!exsistingItem){
+                state.items.push({
+                    id: newItem.id,
+                    title: newItem.title,
+                    quantity: 1,
+                    price: newItem.price
+                })
+            }else{
+                exsistingItem.quantity=exsistingItem.quantity+1;
+                exsistingItem.price=exsistingItem.price+newItem.price
+            }
         }
     }
 })
-const store = configureStore({
-    reducer: {counter: counterSlice.reducer, auth: authSlice.reducer}
-});
 
-export const counterActions= counterSlice.actions
-export const authActions= authSlice.actions
+const store=configureStore({
+    reducer: {ui: UIslice.reducer, Cart: CartSlice.reducer}
+})
 
-export default store;
+export const UIactions=UIslice.actions
+export const CartActions=CartSlice.actions
+
+export default store
